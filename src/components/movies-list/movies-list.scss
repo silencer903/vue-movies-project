@@ -1,0 +1,43 @@
+.movies-page {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  h1{
+    text-align: center;
+  }
+
+  .movies-list{
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .movie{
+      display: flex;
+      width: 483px;
+      margin-top: 30px;
+      .movie-img{
+        height: 278px;
+      }
+
+      .movie-info{
+        padding: 10px 16px 16px 16px;
+        width: 100%;
+        height: 252px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+        h4,p{
+          margin: 0;
+        }
+
+        .movie-title{
+
+        }
+
+        .movie-overview{
+        }
+      }
+    }
+  }
+}

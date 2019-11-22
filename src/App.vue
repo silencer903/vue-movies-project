@@ -1,14 +1,22 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <movies-list></movies-list>
   </div>
 </template>
 
-<style lang="scss">
+<script>
+  import MoviesList from "./components/movies-list/movies-list.vue";
+  export default {
+    name: "App",
+    components:{
+      MoviesList
+    },
+
+
+  }
+</script>
+
+<style lang="scss">/*
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -28,5 +36,5 @@
       color: #42b983;
     }
   }
-}
+}*/
 </style>

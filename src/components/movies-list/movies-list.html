@@ -1,0 +1,19 @@
+<div class="movies-page">
+
+    <div class="movies-list">
+        <div v-for="movie of this.movies" class="movie">
+            <div class="movie-img">
+                <img v-bind:src="'https://image.tmdb.org/t/p/w185_and_h278_bestv2/'+movie.poster_path" alt="Нет изображения">
+            </div>
+            <!--<div class="movie-name" v-bind:title="movie.title">
+                <p>{{movie.title}}</p>
+            </div>-->
+            <div class="movie-info">
+                <h4 class="movie-title">{{movie.title}}</h4>
+                <p class="movie-overview">
+                    {{movie.overview | truncateString(overviewLimit)}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
