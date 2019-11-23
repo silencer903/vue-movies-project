@@ -1,14 +1,11 @@
-import  {API_KEY} from "../../config";
-import http from "axios"
+import  {API_KEY} from "@/config";
 
 export default {
-
     name: "movies-list",
     data(){
         return{
             bottom: false,
             page:0,
-            language:"ru-RU",
             movies: [],
             overviewLimit: 385,
         }
@@ -30,12 +27,12 @@ export default {
         },
         getMovies(){
             let page = this.page + 1;
-            http.get('https://api.themoviedb.org/3/discover/movie?api_key='+API_KEY+'&language='+this.language+'&page='+page)
-                .then(response => {
-                    this.movies = [...this.movies, ...response.data.results];
-                    this.page = response.data.page;
-                    console.log(this.movies);
-                });
+            this.$apiRequest("discover/movie", {
+                page: page
+            }).then(response => {
+                this.$set(this, 'movies',  [...this.movies, ...response.data.results]);
+                this.$set(this, 'page', response.data.page);
+            });
         }
     },
     watch: {

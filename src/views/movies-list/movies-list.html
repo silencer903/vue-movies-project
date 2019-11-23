@@ -1,9 +1,16 @@
 <div class="movies-page">
 
     <div class="movies-list">
-        <div v-for="movie of this.movies" class="movie">
+        <div v-for="movie of movies" class="movie">
             <div class="movie-img">
+                <router-link v-bind:to="{
+                name:'movie-view',
+                params:{
+                    id: movie.id
+                }
+            }">
                 <img v-bind:src="'https://image.tmdb.org/t/p/w185_and_h278_bestv2/'+movie.poster_path" alt="Нет изображения">
+                </router-link>
             </div>
             <!--<div class="movie-name" v-bind:title="movie.title">
                 <p>{{movie.title}}</p>
