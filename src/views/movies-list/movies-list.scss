@@ -1,22 +1,51 @@
 .movies-page {
   display: flex;
-  width: 100%;
   justify-content: center;
+  flex-wrap: wrap;
+  background-color: #26252a;
   h1{
     text-align: center;
   }
 
+  .movies-genres{
+    width: 1000px;
+    padding-top: 40px;
+    color: #f4f4f4;
+    > div{
+      background-color: #302f34;
+      color: #f4f4f4;
+      > div{
+        background-color: #302f34;
+        border-color: #302f34;
+        color: #f4f4f4;
+        input{
+          background-color: #302f34;
+          border-color: #302f34;
+          color: #f4f4f4;
+        }
+        ::placeholder {
+          color: #f4f4f4;
+        }
+
+      }
+    }
+  }
+
   .movies-list{
+    max-width: 1000px;
     width: 1000px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
+    background-color: #26252a;
 
     .movie{
       display: flex;
       width: 483px;
-      margin-top: 30px;
+      margin-top: 40px;
+      background-color: #302f34;
+
       .movie-img{
         height: 278px;
       }
@@ -36,6 +65,7 @@
         }
 
         .movie-overview{
+          margin-top: 5px;
         }
       }
     }

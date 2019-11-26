@@ -10,15 +10,18 @@
   }
 </script>
 
-<style lang="scss">/*
+<style lang="scss">
+  body{
+    margin: 0;
+    background-color: #26252a;
+    color: #f4f4f4;
+  }
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
+
+  //font-family: "Source Sans Pro";
+}
+/*
 #nav {
   padding: 30px;
 

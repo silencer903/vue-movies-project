@@ -6,6 +6,8 @@
 
 </script>
 
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
+
 <style lang="scss" src="./movies-list.scss">
 
 </style>

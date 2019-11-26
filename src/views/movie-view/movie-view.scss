@@ -1,0 +1,47 @@
+.movie-page{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  .movie-hr{
+    border: 1px #3b3a40 solid
+  }
+
+  .movie-data{
+    width: 1000px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+
+    .movie-header{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-bottom: 40px;
+
+      .movie-poster{
+
+      }
+
+      .movie-description{
+        width: 700px;
+        box-sizing: border-box;
+        padding-left: 40px;
+
+        h2{
+          margin-top: 0px;
+        }
+
+      }
+    }
+
+    .movie-videos{
+      text-align: center;
+
+      .movie-video{
+        padding-top: 40px;
+      }
+    }
+  }
+
+}

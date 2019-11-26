@@ -1,5 +1,9 @@
 <div class="movies-page">
 
+    <div class="movies-genres">
+        <multiselect v-model="selectedGenres" placeholder="Выберте жанры" label="name" track-by="id" :options="genres" :multiple="true" :taggable="true" @input="setSelectedGenres"></multiselect>
+    </div>
+
     <div class="movies-list">
         <div v-for="movie of movies" class="movie">
             <div class="movie-img">

@@ -1,18 +1,24 @@
 <div class="movie-page">
-    {{movie}}
-    <div class="movie-poster">
+    <div class="movie-data">
+        <div class="movie-header">
+            <div class="movie-poster">
+                <img v-bind:src="'https://image.tmdb.org/t/p/w300_and_h450_bestv2/'+movie.poster_path" alt="">
+            </div>
 
-    </div>
-    <div class="movie-info">
-        {{movie.overview}}
-    </div>
-    <div>
-
-    </div>
-    <div class="movie-videos">
-        <div v-for="video of movie.videos" class="movie-video">
-            <!--<a target="_blank" v-bind:href="'https://www.themoviedb.org/video/play?key='+video.key"><img v-bind:src="'https://i.ytimg.com/vi/'+video.key+'/hqdefault.jpg'" alt=""></a>-->
-            <youtube :video-id="video.key"></youtube>
+            <div class="movie-description">
+                <h2>{{movie.title}}</h2>
+                <p>Дата выхода: {{movie.release_date | DateFormater()}}</p>
+                <p>Продолжительность: {{movie.runtime}} мин.</p>
+                <p>Жанры: {{movie.genres | GenresToString()}}</p>
+                <p>{{movie.overview}} </p>
+                <p></p>
+            </div>
+        </div>
+        <div class="movie-hr"></div>
+        <div class="movie-videos">
+            <div  v-for="video of movie.videos.results" class="movie-video">
+                <youtube player-width="1000px" v-bind:video-id="video.key"></youtube>
+            </div>
         </div>
     </div>
 </div>

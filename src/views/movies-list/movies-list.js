@@ -1,19 +1,28 @@
-import  {API_KEY} from "@/config";
-
+import Multiselect from 'vue-multiselect'
+import apiRequest from '../../plugins/api-worker';
 export default {
     name: "movies-list",
+    components: {
+        'multiselect': Multiselect
+    },
     data(){
         return{
             bottom: false,
             page:0,
             movies: [],
             overviewLimit: 385,
+            genres: [],
+            selectedGenres: [
+            ],
         }
     },
     created(){
         window.addEventListener('scroll', () => {
             this.bottom = this.bottomVisible();
         });
+
+        this.getGenres();
+        this.$set(this, 'selectedGenres',  this.$store.state.selectedGenres);
         this.getMovies();
     },
     methods:{
@@ -26,12 +35,20 @@ export default {
             return bottomOfPage || pageHeight < visible;
         },
         getMovies(){
-            let page = this.page + 1;
-            this.$apiRequest("discover/movie", {
-                page: page
+            this.$store.dispatch('getMoviesAsync').then(() => {
+                this.$set(this, 'movies',  this.$store.state.movies);
+            });
+        },
+        getGenres(){
+            apiRequest("genre/movie/list", {
             }).then(response => {
-                this.$set(this, 'movies',  [...this.movies, ...response.data.results]);
-                this.$set(this, 'page', response.data.page);
+                this.$set(this, 'genres',  response.data.genres);
+                console.log(this.genres);
+            });
+        },
+        setSelectedGenres(){
+            this.$store.dispatch('setSelectedGenresAsync',this.selectedGenres).then(() => {
+                console.log(this.$store.state);
             });
         }
     },
