@@ -1,29 +1,19 @@
 # movies
 
-## Project setup
+## Установка
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Компиляция для разработки с горячей загрузкой
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Компиляция с минимизацией для продакшена
 ```
 npm run build
 ```
 
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
-
-### Customize configuration
+### Изменение конфигураций
 See [Configuration Reference](https://cli.vuejs.org/config/).
