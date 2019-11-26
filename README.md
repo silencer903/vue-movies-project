@@ -1,5 +1,5 @@
 # movies
-[Демо](https://github.com/silencer903/vue-movies-app)
+[Демо](https://silencer903.github.io/vue-movies-app/)
 ## Установка
 ```
 npm install
