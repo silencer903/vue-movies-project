@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import apiRequest from '../plugins/api-worker'
+import moment from 'moment'
 
 Vue.use(Vuex);
 
@@ -14,6 +15,9 @@ export default new Vuex.Store({
     getPage: state => {
       return state.page;
     },
+    getSelectedGenresIdsString: state => {
+      return state.selectedGenres.map((value) => {return value.id}).join(",");
+    }
   },
   mutations: {
     nextPage: (state) =>{
@@ -23,7 +27,12 @@ export default new Vuex.Store({
       state.page = page;
     },
     setMovies: (state, payload) =>{
-      state.movies = [...state.movies, ...payload.results];
+      if(payload.empty === true){
+        state.movies = [];
+      }else{
+        state.movies = [...state.movies, ...payload.results];
+      }
+
     },
     setSelectedGenres: (state, selectedGenres) => {
       state.selectedGenres = selectedGenres;
@@ -33,7 +42,10 @@ export default new Vuex.Store({
     getMoviesAsync: (context) => {
       context.commit('nextPage');
       return apiRequest("discover/movie", {
-        page: context.getters.getPage
+        page: context.getters.getPage,
+        sort_by: "popularity.desc",
+        primary_release_date: moment().format('YYYY-MM-DD'),
+        with_genres: context.getters.getSelectedGenresIdsString
       }).then(response => {
         context.commit('setMovies', response.data);
         context.commit('setCurrentPage', response.data.page);
@@ -41,6 +53,8 @@ export default new Vuex.Store({
     },
     setSelectedGenresAsync: (context,selectedGenres) => {
       context.commit('setSelectedGenres', selectedGenres);
+      context.commit('setMovies', {empty: true});
+      context.commit('setCurrentPage', {page: 0});
     }
   },
   modules: {

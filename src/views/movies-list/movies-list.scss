@@ -1,30 +1,31 @@
 .movies-page {
+  @import "@/assets/vars-styles";
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: #26252a;
+  background-color: $base-background-color;
   h1{
     text-align: center;
   }
 
   .movies-genres{
-    width: 1000px;
-    padding-top: 40px;
-    color: #f4f4f4;
+    width: $app-width;
+    padding-top: $base-margin-padding;
+    color: $base-text-color;
     > div{
-      background-color: #302f34;
-      color: #f4f4f4;
+      background-color: $elements-background-color;
+      color: $base-text-color;
       > div{
-        background-color: #302f34;
-        border-color: #302f34;
-        color: #f4f4f4;
+        background-color: $elements-background-color;
+        border-color: $elements-background-color;
+        color: $base-text-color;
         input{
-          background-color: #302f34;
-          border-color: #302f34;
-          color: #f4f4f4;
+          background-color: $elements-background-color;
+          border-color: $elements-background-color;
+          color: $base-text-color;
         }
         ::placeholder {
-          color: #f4f4f4;
+          color: $base-text-color;
         }
 
       }
@@ -32,19 +33,19 @@
   }
 
   .movies-list{
-    max-width: 1000px;
-    width: 1000px;
+    max-width: $app-width;
+    width: $app-width;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color: #26252a;
+    background-color: $base-background-color;
 
     .movie{
       display: flex;
       width: 483px;
-      margin-top: 40px;
-      background-color: #302f34;
+      margin-top: $base-margin-padding;
+      background-color: $elements-background-color;
 
       .movie-img{
         height: 278px;
@@ -55,6 +56,10 @@
         width: 100%;
         height: 252px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+        a{
+          color: $base-text-color;
+        }
 
         h4,p{
           margin: 0;

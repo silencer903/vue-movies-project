@@ -13,14 +13,18 @@
                     id: movie.id
                 }
             }">
-                <img v-bind:src="'https://image.tmdb.org/t/p/w185_and_h278_bestv2/'+movie.poster_path" alt="Нет изображения">
+                <img v-bind:src="'https://image.tmdb.org/t/p/w185_and_h278_bestv2/'+movie.poster_path" @error="setEmptyImage($event)">
                 </router-link>
             </div>
-            <!--<div class="movie-name" v-bind:title="movie.title">
-                <p>{{movie.title}}</p>
-            </div>-->
             <div class="movie-info">
-                <h4 class="movie-title">{{movie.title}}</h4>
+                <router-link v-bind:to="{
+                name:'movie-view',
+                params:{
+                    id: movie.id
+                }
+            }">
+                    <h4 class="movie-title">{{movie.title}}</h4>
+                </router-link>
                 <p class="movie-overview">
                     {{movie.overview | truncateString(overviewLimit)}}
                 </p>

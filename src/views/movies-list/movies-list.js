@@ -1,5 +1,7 @@
 import Multiselect from 'vue-multiselect'
 import apiRequest from '../../plugins/api-worker';
+import emptyImg from "./images/empty.png"
+
 export default {
     name: "movies-list",
     components: {
@@ -43,13 +45,18 @@ export default {
             apiRequest("genre/movie/list", {
             }).then(response => {
                 this.$set(this, 'genres',  response.data.genres);
-                console.log(this.genres);
             });
         },
         setSelectedGenres(){
             this.$store.dispatch('setSelectedGenresAsync',this.selectedGenres).then(() => {
                 console.log(this.$store.state);
+                this.$store.dispatch('getMoviesAsync').then(() => {
+                    this.$set(this, 'movies',  this.$store.state.movies);
+                });
             });
+        },
+        setEmptyImage(event) {
+            event.target.src = emptyImg;
         }
     },
     watch: {
@@ -64,7 +71,12 @@ export default {
             if(value.length > overviewLimit){
                 return value.substring(0,overviewLimit)+"...";
             }else{
-                return value;
+                if(value.length === 0){
+                    return "Описание отсутствует";
+                }else{
+                    return value;
+                }
+
             }
         }
     },

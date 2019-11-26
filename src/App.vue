@@ -11,27 +11,16 @@
 </script>
 
 <style lang="scss">
+  @import "assets/vars-styles";
   body{
+    @import "@/assets/fonts/_fonts";
+
     margin: 0;
-    background-color: #26252a;
-    color: #f4f4f4;
+    background-color: $base-background-color;
+    color: $base-text-color;
+    font-family: 'Source Sans Pro',sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 14px;
   }
-#app {
-
-
-  //font-family: "Source Sans Pro";
-}
-/*
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}*/
 </style>
